@@ -28,15 +28,16 @@ $ pip install trueskill
 Usage
 -----
 
-sc2skills uses a text file for loading your match statistics. The files has one
+sc2skills uses a text file for loading your match statistics. The file has one
 match per line in the following format:
 
 ```
 <"win"/"loss"> <opponent mmr> <label>
 ```
 
-`label` can be anything. For example, you can use the race you were playing or
-the name of the strategy you used.
+The matches must be in chronological order so that most recent games are at the
+bottom. `label` can be anything. For example, you can use the race you were
+playing or the name of the strategy you used.
 
 For example, `games.txt`:
 
@@ -60,6 +61,9 @@ The ratings can be calculated with the following command:
 ```bash
 $ ./main.py <region> <games file>
 ```
+
+It will show the calculated rating and league for each of your labels along
+with the 95% confidence interval.
 
 For example:
 

@@ -1,6 +1,6 @@
 import collections
 import math
-import scipy.stats
+import trueskill
 
 LEAGUES = {
     "EU": collections.OrderedDict([
@@ -58,7 +58,7 @@ class Ladder:
     def sigma(self):
         # 73 % of the players are below diamond
         return ((self.leagues["diamond-3"] - self.mu)
-                / scipy.stats.norm.ppf(0.73))
+                / trueskill.TrueSkill().ppf(0.73))
 
     def get_league(self, mmr):
         for league, min_mmr in self.leagues.items():

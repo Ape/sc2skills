@@ -15,14 +15,13 @@ Dependencies
 
 sc2skills requires Python 3.5 or newer.
 
-You also need [scipy](https://www.scipy.org/) and
-[trueskill](http://trueskill.org/). These are available in
+You also need [trueskill](http://trueskill.org/). It is available in
 [PyPi](https://pypi.python.org) or your distribution's package manager.
 
 You can install the dependencies with `pip`:
 
 ```bash
-$ pip install scipy trueskill
+$ pip install trueskill
 ```
 
 

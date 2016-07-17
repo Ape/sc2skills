@@ -50,19 +50,13 @@ def print_board(ladder, ratings):
                       league=league))
 
 def rate(ladder, rating, game):
-    opponent = trueskill.Rating(mu=game.mmr, sigma=OPPONENT_SIGMA * ladder.sigma)
+    opponent = trueskill.Rating(mu=game.mmr,
+                                sigma=OPPONENT_SIGMA * ladder.sigma)
 
     if game.result is Result.win:
-        winner, loser = rating, opponent
+        return trueskill.rate_1vs1(rating, opponent)[0]
     else:
-        winner, loser = opponent, rating
-
-    rating_winner, rating_loser = trueskill.rate_1vs1(winner, loser)
-
-    if game.result is Result.win:
-        return rating_winner
-    else:
-        return rating_loser
+        return trueskill.rate_1vs1(opponent, rating)[1]
 
 def main():
     parser = argparse.ArgumentParser()

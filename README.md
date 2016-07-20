@@ -42,6 +42,7 @@ playing or the name of the strategy you used.
 For example, `games.txt`:
 
 ```
+# Comments can be added like this.
 loss 3324 oracle_into_blink
 win 3522 6_gate_allin
 win 3269 6_gate_allin

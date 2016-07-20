@@ -20,8 +20,10 @@ def load_games(games_file):
         lines = f.readlines()
 
     for line in lines:
-        result, mmr, label = line.strip().split()
-        games.append(Game(Result[result], int(mmr), label))
+        data = line.strip().split("#")[0]
+        if data:
+            result, mmr, label = data.split()
+            games.append(Game(Result[result], int(mmr), label))
 
     return games
 
